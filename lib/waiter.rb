@@ -63,6 +63,12 @@ class Waiter
       }
   end
 
+  def self.least_experienced
+    self.all.reduce {least_experienced, waiter|
+      least_experienced.yrs_experience < waiter.yrs_experience ? least_experienced : waiter
+    }
+  end
+
   def total_tips
     meals.reduce { |tip_sum, meal|
       tip_sum + meal.tip

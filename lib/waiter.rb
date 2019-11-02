@@ -47,6 +47,6 @@ class Waiter
     unique_customers.reduce {|max_count, customer|
         max_count[:visits] > customer[:visits] ? max_count : customer
       }
-      
+
   end
 end

@@ -29,4 +29,24 @@ class Waiter
       a.tip <=> b.tip
     }.customer
   end
+
+  def most_frequent_customer
+    customer_list = meals.map { |meal|
+      meal.customer
+    }
+    unique_customers = customer_list.uniq
+
+    i = 0
+    while i < unique_customers.length
+      unique_customers[i][:visits] = customer_list.map { |customer_meal|
+        unique_customers[i] == customer_meal
+      }.count
+      i += 1
+    end
+
+    unique_customers.reduce {|max_count, customer|
+        max_count[:visits] > customer[:visits] ? max_count : customer
+      }
+      
+  end
 end

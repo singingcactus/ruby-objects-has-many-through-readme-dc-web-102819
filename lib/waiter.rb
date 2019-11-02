@@ -67,8 +67,8 @@ class Waiter
     meals.reduce { |tip_sum, meal|
       tip_sum + meal.tip
       }
-      
-    
+
+
 
 
 end

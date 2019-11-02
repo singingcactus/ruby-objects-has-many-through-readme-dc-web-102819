@@ -73,7 +73,8 @@ class Waiter
     total_tips / meals.count
   end
 
-
-
+  def most_experienced_average_tip
+    self.most_experienced.average_tip
+  end
 
 end

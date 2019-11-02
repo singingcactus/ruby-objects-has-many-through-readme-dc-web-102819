@@ -63,10 +63,15 @@ class Waiter
       }
   end
 
-  def average_tips
+  def total_tips
     meals.reduce { |tip_sum, meal|
       tip_sum + meal.tip
       }
+  end
+
+  def average_tip
+    total_tips / meals.count
+  end
 
 
 

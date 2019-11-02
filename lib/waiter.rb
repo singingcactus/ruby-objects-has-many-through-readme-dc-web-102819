@@ -50,4 +50,18 @@ class Waiter
 
     top_customer.name
   end
+
+  def worst_customers_meal
+    meals.min { |a, b|
+      a.tip <=> b.tip
+    }.find
+  end
+
+  def self.most_experienced
+    self.all.reduce { |most_experienced, waiter|
+        most_experienced.yrs_experience > waiter.yrs_experience ? most_experienced : waiter
+      }
+    end
+  
+  
 end
